@@ -9,6 +9,9 @@
     <body>
     <c:import url="../layout/app.jsp">
     <c:param name="content">
+        <c:choose>
+            <c:when test="${task != null}">
+
         <h2>id : ${task.id} のタスク編集ページ</h2>
 
         <form method="POST" action="${pageContext.request.contextPath}/update">
@@ -27,6 +30,11 @@
             }
         }
         </script>
+        </c:when>
+            <c:otherwise>
+                <h2>お探しのデータは見つかりませんでした。</h2>
+            </c:otherwise>
+        </c:choose>
 
     </c:param>
 </c:import>
